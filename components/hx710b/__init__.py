@@ -1,10 +1,13 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor
-from esphome.const import CONF_ID, CONF_DOUT_PIN, CONF_CLK_PIN
+from esphome.const import CONF_ID
 
 DEPENDENCIES = []
 CODEOWNERS = ["@JoseTaborda"]
+
+CONF_DOUT_PIN = "dout_pin"  # Definindo manualmente
+CONF_CLK_PIN = "clk_pin"    # Definindo manualmente
 
 hx710b_ns = cg.esphome_ns.namespace('hx710b')
 HX710BSensor = hx710b_ns.class_('HX710BSensor', sensor.Sensor, cg.PollingComponent)
@@ -17,3 +20,5 @@ CONFIG_SCHEMA = sensor.sensor_schema(
     cv.Required(CONF_DOUT_PIN): cv.use_id(cg.GPIOPin),
     cv.Required(CONF_CLK_PIN): cv.use_id(cg.GPIOPin),
 }).extend(cv.polling_component_schema('20s'))
+
+

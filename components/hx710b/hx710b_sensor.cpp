@@ -7,6 +7,7 @@ void HX710BSensor::setup() {
   this->dout_pin_->setup();
   this->clk_pin_->setup();
   this->clk_pin_->digital_write(false);
+  
 }
 
 void HX710BSensor::update() {
@@ -30,5 +31,9 @@ void HX710BSensor::dump_config() {
   LOG_PIN("  DOUT Pin: ", this->dout_pin_);
   LOG_PIN("  CLK Pin: ", this->clk_pin_);
 }
+
+void HX710BSensor::set_dout_pin(InternalGPIOPin *pin) { dout_pin_ = pin; }
+void HX710BSensor::set_clk_pin(InternalGPIOPin *pin) { clk_pin_ = pin; }
+
 }  // namespace hx710b
 }  // namespace esphome

@@ -1,6 +1,6 @@
 import esphome.codegen as cg
 from esphome.components import sensor
-from . import CONF_HX710B, HX710BSensor
+from . import CONF_HX710B, HX710BSensor, CONF_DOUT_PIN, CONF_CLK_PIN
 
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])

@@ -8,8 +8,8 @@ namespace hx710b {
 
 class HX710BSensor : public sensor::Sensor, public PollingComponent {
  public:
-  void set_dout_pin(InternalGPIOPin *pin) { dout_pin_ = pin; }
-  void set_clk_pin(InternalGPIOPin *pin) { clk_pin_ = pin; }
+  void set_dout_pin(InternalGPIOPin *pin);
+  void set_clk_pin(InternalGPIOPin *pin);
   
   void setup() override;
   void dump_config() override;
