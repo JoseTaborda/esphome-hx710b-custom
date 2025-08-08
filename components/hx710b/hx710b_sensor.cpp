@@ -10,7 +10,7 @@ void HX710BSensor::setup() {
 }
 
 void HX710BSensor::update() {
-  while (this->dout_pin_->digital_read()) {} // Wait for LOW
+  while (this->dout_pin_->digital_read()) {}
   
   long data = 0;
   for (int i = 0; i < 24; i++) {
@@ -26,7 +26,9 @@ void HX710BSensor::update() {
 }
 
 void HX710BSensor::dump_config() {
-  LOG_SENSOR("", "HX710B", this);
+  ESP_LOGCONFIG(TAG, "HX710B Sensor:");
+  LOG_PIN("  DOUT Pin: ", this->dout_pin_);
+  LOG_PIN("  CLK Pin: ", this->clk_pin_);
 }
-}
-}
+}  // namespace hx710b
+}  // namespace esphome
